@@ -33,4 +33,12 @@ export class SeriesService {
   getSeries() {
     return this.series;
   }
+
+  getSeriesByRanking() {
+    
+  }
+
+  addAverageRating() {
+
+  }
 }

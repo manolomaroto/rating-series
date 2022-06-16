@@ -1,4 +1,6 @@
-<p>home works!</p>
+<div *ngFor="let serie of series">
+    <app-serie-rating [serie]="serie"></app-serie-rating>
+</div>
 <p>
     <button [routerLink]="['/add-serie']">Añade serie</button>
     <button [routerLink]="['/show-top']">Ver TOP series</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  series: Object[];
+
+  constructor(
+    private seriesService: SeriesService
+  ) { }
 
   ngOnInit(): void {
+    this.series = this.seriesService.getSeries();
+    this.seriesService.addAverageRating();
   }
 
 }
