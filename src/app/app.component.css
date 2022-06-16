@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+    justify-content: center;
+    max-width: 1170px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0 auto;
+}
