@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Serie } from '../interfaces/serie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeriesService {
 
-  series: Object[] = [
+  series: Serie[] = [
     {
       title: 'Los Soprano',
       description: 'Serie sobre mafiosos de Nueva Jersey',
@@ -39,6 +40,6 @@ export class SeriesService {
   }
 
   addAverageRating() {
-
+    this.series.map(o => console.log(o.rating));
   }
 }
