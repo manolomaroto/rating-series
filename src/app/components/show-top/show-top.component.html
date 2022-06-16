@@ -1,2 +1,7 @@
-<p>show-top works!</p>
-<div class="button"  [routerLink]="['/home']">Volver</div>
+<h1>Top Series</h1>
+<div *ngFor="let serie of series">
+    <app-serie-information [serie]="serie"></app-serie-information>
+</div>
+<footer>
+    <div class="button"  [routerLink]="['/home']">Volver</div>
+</footer>

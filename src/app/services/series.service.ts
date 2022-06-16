@@ -38,13 +38,12 @@ export class SeriesService {
   }
 
   getSeriesByRanking() {
-    this.addAverageRating();
-    //return this.series.map(serie => ({...serie, averageRating: this.addAverageRating()}) );
+    return this.series.map((serie, index) => ({...serie, averageRating: this.addAverageRating()[index]}) );
   }
 
   addAverageRating() {
-    this.series.map(o => {
-      let ratings = Object.values(o.rating)
+    return this.series.map(o => {
+      let ratings = Object.values(o.rating);
       return (ratings.reduce((uno, otro) => uno + otro)) / ratings.length;
     });
   }

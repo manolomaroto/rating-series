@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SeriesService } from 'src/app/services/series.service';
+import { Serie } from 'src/app/interfaces/serie';
 
 @Component({
   selector: 'app-show-top',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowTopComponent implements OnInit {
 
-  constructor() { }
+  series: Serie[]
+
+  constructor(
+    private seriesService: SeriesService
+  ) { }
 
   ngOnInit(): void {
+    this.series = this.seriesService.getSeriesByRanking();
+    console.log(this.series);
   }
 
 }

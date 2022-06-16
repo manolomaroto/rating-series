@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AddSerieComponent } from './components/add-serie/add-serie.component';
 import { ShowTopComponent } from './components/show-top/show-top.component';
 import { SerieRatingComponent } from './components/serie-rating/serie-rating.component';
+import { SerieInformationComponent } from './components/serie-information/serie-information.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SerieRatingComponent } from './components/serie-rating/serie-rating.com
     HomeComponent,
     AddSerieComponent,
     ShowTopComponent,
-    SerieRatingComponent
+    SerieRatingComponent,
+    SerieInformationComponent
   ],
   imports: [
     BrowserModule,
