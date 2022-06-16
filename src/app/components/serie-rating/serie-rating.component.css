@@ -1,0 +1,13 @@
+.serie-container {
+    min-width: 500px;
+}
+
+.headers-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ratings {
+    margin: 20px;
+}

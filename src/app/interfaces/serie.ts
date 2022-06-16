@@ -3,5 +3,5 @@ export interface Serie {
     description: String,
     network: String,
     image: String,
-    rating: Object[]
+    rating: Object
 }

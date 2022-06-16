@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.series = this.seriesService.getSeries();
-    this.seriesService.addAverageRating();
+    console.log(this.seriesService.getSeriesByRanking());
   }
 
 }
