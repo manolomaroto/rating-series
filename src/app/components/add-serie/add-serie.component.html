@@ -1,3 +1,23 @@
-<p>add-serie works!</p>
+<form [formGroup]="serieForm" (ngSubmit)="onSubmit(serieForm)">
+    <div>
+      <label>
+        Título:
+        <input formControlName="title" placeholder="Your name" required>
+      </label>
+    </div>
+    <div>
+      <label>
+        Descripción:
+        <textarea formControlName="description" placeholder="Your email" required></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        Plataforma:
+        <input formControlName="network" placeholder="Your message" required>
+      </label>
+    </div>
+    <button type="submit">Send</button>
+  </form>
 <div class="button"  [routerLink]="['/home']">Volver</div>
 
