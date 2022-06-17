@@ -17,4 +17,10 @@ export class SeriesService {
     return this.http.get<Serie[]>(this.URL);
   }
 
+  postSerie(serie) {
+    this.http.post(this.URL,serie).subscribe(data => {
+      console.log(data)
+  });
+  }
+
 }
