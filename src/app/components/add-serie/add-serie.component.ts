@@ -24,17 +24,21 @@ export class AddSerieComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
+    if(!form.valid){
+      return;
+    }
     this.seriesService.postSerie({
-      "id": 3,
-      "title": "Treme",
-      "description": "Estamos en Nueva Orleans, 3 años antes del Katrina",
-      "network": "HBO",
+      "id": Math.round(Math.random() * 1000),
+      "title": form.value.title,
+      "description": form.value.description,
+      "network": form.value.network,
       "image": "https://static.episodate.com/images/tv-show/full/21612.jpg",
       "rating": {
         "Luis": 8,
         "Ana": 9
       }
-    })
+    });
+    form.reset();
     /* console.log('Valid?', form.valid); // true or false
     console.log('Titulo', form.value.title);
     console.log('Descripcion', form.value.description);

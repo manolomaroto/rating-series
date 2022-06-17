@@ -1,23 +1,23 @@
+<div>
 <form [formGroup]="serieForm" (ngSubmit)="onSubmit(serieForm)">
-    <div>
-      <label>
-        Título:
-        <input formControlName="title" placeholder="Your name" required>
-      </label>
-    </div>
-    <div>
-      <label>
+    <label for="ftitle">
+        Título
+    </label>
+    <input type="text" id="ftitle" formControlName="title" placeholder="Título" required>
+    <label for="fdescription">
         Descripción:
-        <textarea formControlName="description" placeholder="Your email" required></textarea>
-      </label>
-    </div>
-    <div>
-      <label>
-        Plataforma:
-        <input formControlName="network" placeholder="Your message" required>
-      </label>
-    </div>
-    <button type="submit">Send</button>
+    </label>
+    <textarea id="fdescription" formControlName="description" placeholder="Descripción" required></textarea>
+  
+    <label for="fnetwork">
+        Plataforma
+    </label>
+    <input type="text" id="fnetwork" formControlName="network" placeholder="Plataforma" required>
+
+    <button class="button" type="submit">Send</button>
   </form>
-<div class="button"  [routerLink]="['/home']">Volver</div>
+</div>
+<footer>
+    <div class="button"  [routerLink]="['/home']">Volver</div>
+</footer>
 
