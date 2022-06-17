@@ -16,8 +16,13 @@ export class ShowTopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.seriesService.getSeries();
-    this.series = this.seriesService.getSeriesByRanking();
+    this.seriesService.getSeries().subscribe(res => {
+      this.series = res.map((serie, index) => ({...serie, averageRating: res.map(o => {
+        let ratings = Object.values(o.rating);
+        return ((<number>ratings.reduce((previous: number, current: number) => previous + current)) / ratings.length);
+      })[index]}) );
+    });
   }
+
 
 }
