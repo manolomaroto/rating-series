@@ -1,48 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Serie } from '../interfaces/serie';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class SeriesService {
+  private series: Serie[];
+  private URL: string = 'http://localhost:3000/series';
 
-  series: Serie[] = [
-    {
-      title: 'Los Soprano',
-      description: 'Serie sobre mafiosos de Nueva Jersey',
-      network: 'HBO',
-      image: 'https://static.episodate.com/images/tv-show/full/6138.jpg',
-      rating: 
-        {
-        'Luis': 7,
-        'Ana': 9
-      }
-      
-    },
-    {
-      title: 'Treme',
-      description: 'Estamos en Nueva Orleans, 3 años antes del Katrina',
-      network: 'HBO',
-      image:'https://static.episodate.com/images/tv-show/full/21612.jpg',
-      rating: {
-        'Luis': 8,
-        'Ana': 9
-      }
-    }
-  ]
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor() { }
-
-  getSeries() {
-    return this.series;
+  getSeries(): Observable<any>{
+    return this.http.get(this.URL);
   }
 
   getSeriesByRanking() {
-    return this.series.map((serie, index) => ({...serie, averageRating: this.addAverageRating()[index]}) );
+    this.getSeries().subscribe(res => this.series = res);
+    return this.series?.map((serie, index) => ({...serie, averageRating: this.addAverageRating()[index]}) );
   }
 
   addAverageRating() {
-    return this.series.map(o => {
+    return this.series?.map(o => {
       let ratings = Object.values(o.rating);
       return (ratings.reduce((uno, otro) => uno + otro)) / ratings.length;
     });

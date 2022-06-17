@@ -16,8 +16,8 @@ export class ShowTopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.seriesService.getSeries();
     this.series = this.seriesService.getSeriesByRanking();
-    console.log(this.series);
   }
 
 }

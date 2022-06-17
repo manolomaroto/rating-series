@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Serie } from 'src/app/interfaces/serie';
 import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
@@ -8,15 +9,14 @@ import { SeriesService } from 'src/app/services/series.service';
 })
 export class HomeComponent implements OnInit {
 
-  series: Object[];
+  series: Serie[];
 
   constructor(
     private seriesService: SeriesService
   ) { }
 
   ngOnInit(): void {
-    this.series = this.seriesService.getSeries();
-    console.log(this.seriesService.getSeriesByRanking());
+    this.seriesService.getSeries().subscribe(res => this.series = res);
   }
 
 }
