@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SeriesService } from 'src/app/services/series.service';
+
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-serie-rating',
   templateUrl: './serie-rating.component.html',
@@ -13,7 +16,9 @@ export class SerieRatingComponent implements OnInit {
   showForm = false;
 
   constructor(
-    private seriesService: SeriesService
+    private seriesService: SeriesService,
+    public router: Router, 
+    public location: Location
   ) { }
 
   ngOnInit(): void {
@@ -38,11 +43,19 @@ export class SerieRatingComponent implements OnInit {
     
     this.seriesService.putSerie(objectToSend);
     form.reset();
+    this.refresh();
     this.showForm = false;
   }
 
   onToggleForm() {
     this.showForm = !this.showForm;
   }
+
+  refresh(): void {
+		let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+	}
 
 }
