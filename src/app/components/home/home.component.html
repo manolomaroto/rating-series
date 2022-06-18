@@ -1,7 +1,10 @@
 <h1>Valoraciones</h1>
-<div *ngFor="let serie of series" class="serie-rating">
-    <app-serie-rating [serie]="serie"></app-serie-rating>
+<div class="serie-rating">
+    <div *ngFor="let serie of series">
+        <app-serie-rating [serie]="serie"></app-serie-rating>
+    </div>
 </div>
+
 <footer>
     <div class="button" [routerLink]="['/add-serie']">Añade serie</div>
     <div class="button" [routerLink]="['/show-top']">Ver TOP series</div>
