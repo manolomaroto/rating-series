@@ -19,7 +19,10 @@ export class AddSerieComponent implements OnInit {
     this.serieForm = new FormGroup({
       title: new FormControl(''),
       description: new FormControl(''),
-      network: new FormControl('')
+      network: new FormControl(''),
+      image: new FormControl(),
+      name: new FormControl(''),
+      rating: new FormControl('')
     })
   }
 
@@ -27,22 +30,20 @@ export class AddSerieComponent implements OnInit {
     if(!form.valid){
       return;
     }
-    this.seriesService.postSerie({
+
+    const userRating = form.value.name;
+    const objectToSend = {
       "id": Math.round(Math.random() * 1000),
       "title": form.value.title,
       "description": form.value.description,
       "network": form.value.network,
-      "image": "https://static.episodate.com/images/tv-show/full/21612.jpg",
-      "rating": {
-        "Luis": 8,
-        "Ana": 9
-      }
-    });
+      "image": form.value.image,
+      "rating":
+        {[userRating] : form.value.rating}
+    }
+    
+    this.seriesService.postSerie(objectToSend);
     form.reset();
-    /* console.log('Valid?', form.valid); // true or false
-    console.log('Titulo', form.value.title);
-    console.log('Descripcion', form.value.description);
-    console.log('Plataforma', form.value.network); */
   }
 
 }

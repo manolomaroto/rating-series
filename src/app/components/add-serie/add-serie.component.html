@@ -14,7 +14,20 @@
     </label>
     <input type="text" id="fnetwork" formControlName="network" placeholder="Plataforma" required>
 
-    <button class="button" type="submit">Send</button>
+    <label for="fimg">Selecciona imagen</label>
+    <input type="file" id="fimg" name="img" accept="image/*" formControlName="image">
+
+    <label for="fname">
+        Tu nombre
+    </label>
+    <input type="text" id="fname" formControlName="name" placeholder="Nombre" required>
+
+    <label for="frating">
+        Puntuacion
+    </label>
+    <input type="text" id="frating" formControlName="rating" placeholder="Puntuación" required>
+
+    <button class="button" type="submit">Guardar</button>
   </form>
 </div>
 <footer>

@@ -1,14 +1,25 @@
 
 <div class="card">
-    <img [src]="serie.image" alt="Avatar" class="responsive">
     <div class="container">
-        <h4><b>{{serie.title}}</b></h4>
-        <h3>{{serie.network}}</h3>
+        <h4>{{serie.title}}</h4>
+        <h3><small>{{serie.network}}</small></h3>
         <div class="ratings-container">
             <div class="ratings" *ngFor="let item of serie.rating | keyvalue">
                 <span>{{item.key}}: {{item.value}}</span>
             </div>
         </div>
-    <div class="button" >Añade valoración</div>
+    <div class="button" (click)="onToggleForm()" *ngIf="!showForm">Añade valoración</div>
+    <form [formGroup]="ratingForm" (ngSubmit)="onSubmit(ratingForm)" *ngIf="showForm" >
+        <label for="fname">
+            Tu nombre
+        </label>
+        <input type="text" id="fname" formControlName="name" placeholder="Nombre" required>
+    
+        <label for="frating">
+            Puntuacion
+        </label>
+        <input type="text" id="frating" formControlName="rating" placeholder="Puntuación" required>
+        <button class="button" type="submit">Guardar</button>
+    </form>
     </div>
   </div>

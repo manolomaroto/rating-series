@@ -19,7 +19,7 @@ export class ShowTopComponent implements OnInit {
     this.seriesService.getSeries().subscribe(res => {
       this.series = res.map((serie, index) => ({...serie, averageRating: res.map(o => {
         let ratings = Object.values(o.rating);
-        return ((<number>ratings.reduce((previous: number, current: number) => previous + current)) / ratings.length);
+        return ((<number>ratings.reduce((previous: number, current: number) => +previous + +current)) / ratings.length).toFixed(1);
       })[index]}) );
     });
   }

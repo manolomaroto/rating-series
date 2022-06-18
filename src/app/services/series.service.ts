@@ -23,4 +23,11 @@ export class SeriesService {
   });
   }
 
+  putSerie(serie) {
+    const serieUpdateUrl = this.URL + "/" + serie.id;
+    this.http.put(serieUpdateUrl,serie).subscribe(data => {
+      console.log(data)
+  });
+  }
+
 }
