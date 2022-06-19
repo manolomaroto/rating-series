@@ -18,7 +18,7 @@
         <label for="frating">
             Puntuacion
         </label>
-        <input type="text" id="frating" formControlName="rating" placeholder="Puntuación" required>
+        <input type="number" id="frating" formControlName="rating" min="0" max="10" required>
         <button class="button" type="submit">Guardar</button>
     </form>
     </div>

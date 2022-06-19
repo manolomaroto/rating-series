@@ -29,7 +29,9 @@ export class SerieRatingComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup){
-   
+    if(!form.valid){
+      return;
+    }
     const userRating = form.value.name;
     const objectToSend = {
       "id": this.serie.id,
