@@ -4,6 +4,7 @@ import { SeriesService } from 'src/app/services/series.service';
 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Serie } from 'src/app/interfaces/serie';
 @Component({
   selector: 'app-serie-rating',
   templateUrl: './serie-rating.component.html',
@@ -11,8 +12,8 @@ import { Location } from '@angular/common';
 })
 export class SerieRatingComponent implements OnInit {
 
-  @Input() serie;
-  ratingForm: FormGroup;
+  @Input() serie: Serie = {id: 1, title: '', description:'', rating:{}, image: '', network:''};
+  ratingForm: FormGroup = new FormGroup({});
   showForm = false;
 
   constructor(

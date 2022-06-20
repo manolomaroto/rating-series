@@ -2,13 +2,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowTopComponent } from './show-top.component';
 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 describe('ShowTopComponent', () => {
   let component: ShowTopComponent;
   let fixture: ComponentFixture<ShowTopComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowTopComponent ]
+      declarations: [ ShowTopComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   });

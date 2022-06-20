@@ -8,7 +8,7 @@ import { Serie } from 'src/app/interfaces/serie';
 })
 export class SerieInformationComponent implements OnInit {
 
-  @Input() serie: Serie;
+  @Input() serie: Serie= {id: 1, title: '', description:'', rating:{}, image: '', network:''};
 
   constructor() { }
 

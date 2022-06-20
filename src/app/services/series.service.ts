@@ -17,13 +17,13 @@ export class SeriesService {
     return this.http.get<Serie[]>(this.URL);
   }
 
-  postSerie(serie) {
+  postSerie(serie: Serie) {
     this.http.post(this.URL,serie).subscribe(data => {
       console.log(data)
   });
   }
 
-  putSerie(serie) {
+  putSerie(serie: Serie) {
     const serieUpdateUrl = this.URL + "/" + serie.id;
     this.http.put(serieUpdateUrl,serie).subscribe(data => {
       console.log(data)
